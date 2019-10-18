@@ -42,16 +42,52 @@ class surfaceModule extends Module {
     super("surfaceModule");
   }
 
+  resizeSurface(width, height, id) {
+    if (id === "museum") {
+      museumPanel.resize(width, height);
+    } else if (id === "restaurant") {
+      restaurantPanel.resize(width, height);
+    } else if (id === "shopping") {
+      shoppingPanel.resize(width, height);
+    } else if (id === "market") {
+      marketPanel.resize(width, height);
+    }
+  }
+
   start() {
-    r360.renderToSurface(r360.createRoot("InfoPanel", {}), marketPanel);
+    r360.renderToSurface(
+      r360.createRoot("InfoPanel", {
+        id: "market",
+        text: "Browse our incredible market"
+      }),
+      marketPanel
+    );
 
-    r360.renderToSurface(r360.createRoot("InfoPanel", {}), shoppingPanel);
+    r360.renderToSurface(
+      r360.createRoot("InfoPanel", {
+        id: "shopping",
+        text: "Shop until you drop!"
+      }),
+      shoppingPanel
+    );
 
-    r360.renderToSurface(r360.createRoot("InfoPanel", {}), museumPanel);
+    r360.renderToSurface(
+      r360.createRoot("InfoPanel", {
+        id: "museum",
+        text: "The Life of Pablo Picasso: Blue."
+      }),
+      museumPanel
+    );
 
-    r360.renderToSurface(r360.createRoot("InfoPanel", {}), restaurantPanel);
+    r360.renderToSurface(
+      r360.createRoot("InfoPanel", {
+        id: "restaurant",
+        text: "Enjoy a delicious beer at our restaurants."
+      }),
+      restaurantPanel
+    );
 
-    r360.detachRoot(introRoot)
+    r360.detachRoot(introRoot);
   }
 }
 
