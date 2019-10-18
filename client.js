@@ -65,6 +65,26 @@ function init(bundle, parent, options = {}) {
     0
   );
 
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel',{}),
+    marketPanel
+  )
+
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel',{}),
+    shoppingPanel
+  )
+
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel',{}),
+    museumPanel
+  )
+
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel',{}),
+    restaurantPanel
+  )
+
   r360.compositor.setBackground(r360.getAssetURL('gdansk.jpg'));
 }
 
