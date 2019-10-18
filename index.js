@@ -17,11 +17,12 @@ class InfoPanel extends React.Component {
     img: {
       name: "info.png",
       width: 100,
-      height: 100
+      height: 100,
     }
   };
 
   transformDisplay = id => {
+    console.log('transformDisplay')
     this._changeSurfaceDimensions(500, 400, id);
     this.setState({
       img: { name: `${id}.jpg`, width: 500, height: 300 }
@@ -29,6 +30,7 @@ class InfoPanel extends React.Component {
   };
 
   resetPanel = id => {
+    console.log('reset')
     this._changeSurfaceDimensions(100, 100, id);
     this.setState({
       img: { name: "info.png", width: 100, height: 100 }
@@ -45,7 +47,7 @@ class InfoPanel extends React.Component {
     return (
       <View
         style={styles.displayPanel}
-        hitSlop={100}
+        hitSlop={200}
         onEnter={() => this.transformDisplay(this.props.id)}
         onExit={() => this.resetPanel(this.props.id)}
       >
@@ -85,7 +87,8 @@ const styles = StyleSheet.create({
   displayPanel: {
     width: 100,
     height: 100,
-    flexDirection: "column"
+    flexDirection: "column",
+    zIndex:9999,
   },
   attractionBox: {
     padding: 20,
